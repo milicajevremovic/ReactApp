@@ -8,10 +8,8 @@ const ProductPage = () => {
     const products = useSelector((state: AppState) => state.allProducts.products);
     const dispatch = useDispatch();
 
-
-
     useEffect(() => {
-        dispatch(getProducts.GetProducts);
+        dispatch(getProducts.GetProducts());
     }, []);
     console.log("Products :", products);
     return (

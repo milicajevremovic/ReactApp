@@ -15,12 +15,12 @@
 
 
 import { Dispatch } from "redux";
-import { SET_PRODUCTS_SUCCESS, ProductsDispatchTypes } from "../actions/productActions";
+import { SET_PRODUCTS_SUCCESS, ProductsDispatchTypes, ProductType } from "../actions/productActions";
 import axios from "axios";
 
-export const GetProducts = (pokemon: string) => async (dispatch: Dispatch<ProductsDispatchTypes>) => {
+export const GetProducts = () => async (dispatch: Dispatch<ProductsDispatchTypes>) => {
     try {
-        const res = await axios.get("http://fakestoreapi.com/products");
+        const res = await axios.get<ProductType[]>("http://fakestoreapi.com/products");
 
         dispatch({
             type: SET_PRODUCTS_SUCCESS,
